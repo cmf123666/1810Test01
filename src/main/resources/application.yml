@@ -1,0 +1,37 @@
+spring:
+  mail:
+    default-encoding: UTF-8
+    host: smtp.qq.com
+    username: 825916511@qq.com
+    password: axumfabqztgrbfji
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+  datasource:
+    name: mydb
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/cmf?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: servername
+  dubbo:
+    application:
+      name: tree_consumer
+    registry:
+      address: zookeeper://127.0.0.1:2181
+    scan: com.jk.service
+
+mybatis:
+  mapperLocations: classpath*:mybatis/mapper-*.xml
+  typeAliasesPackage: com.jk.bean
+
+
+server:
+  port: 8081

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+
+    <title>注册页面</title>
+    <script src="/jquery-1.9.1.min.js"></script>
+    </meta>
+</head>
+<body>
+<form action="/registered" method="post">
+账号：<input type="text" name="userId" /></br>
+密码：<input type="password" name="userPassword" /></br>
+qq邮箱：<input type="text" name="email" id="textid" /></br>
+
+    <input type="text" name="yanzhengma" /><input type="button" value="获取验证码" onclick="huoqu()" />
+    <input type="submit" value="提交" />
+
+</form>
+
+</body>
+<script>
+      function huoqu() {
+           var str = $("#textid").val()
+          $.ajax({
+                url:"/getCheckCode?email="+str,
+                type:"post",
+
+              success:function () {
+                  alert("已经成功获取，请尽快使用");
+              },error:function () {
+                  alert("获取失败请一会试");
+              }
+
+          })
+
+
+      }
+
+
+
+</script>
+</html>
